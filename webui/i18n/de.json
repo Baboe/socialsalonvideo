@@ -117,6 +117,8 @@
     "Pixabay API Key added successfully": "Pixabay-API-Schlüssel erfolgreich hinzugefügt",
     "Select Pixabay API Key to delete": "Wählen Sie den zu löschenden Pixabay-API-Schlüssel aus",
     "Delete Selected Pixabay API Key": "Ausgewählten Pixabay-API-Schlüssel löschen",
-    "Pixabay API Key deleted successfully": "Pixabay-API-Schlüssel erfolgreich gelöscht"
+    "Pixabay API Key deleted successfully": "Pixabay-API-Schlüssel erfolgreich gelöscht",
+    "Also Add Your Own Media": "Eigene Bilder/Videos hinzufügen",
+    "Also Add Your Own Media Help": "Optional: Lade eigene Bilder oder Videoclips hoch, die mit der gewählten Online-Quelle gemischt werden."
   }
 }

@@ -191,6 +191,19 @@ def get_video_materials(task_id, params, video_terms, audio_duration):
                 "failed to download videos, maybe the network is not available. if you are in China, please use a VPN."
             )
             return None
+
+        additional_materials = getattr(params, "additional_video_materials", None)
+        if additional_materials:
+            logger.info(f"\n\n## mixing in {len(additional_materials)} additional local material(s)")
+            preprocessed = video.preprocess_video(
+                materials=additional_materials,
+                clip_duration=params.video_clip_duration,
+            )
+            extra_paths = [m.url for m in preprocessed]
+            if extra_paths:
+                downloaded_videos = downloaded_videos + extra_paths
+                logger.info(f"total materials after mixing: {len(downloaded_videos)}")
+
         return downloaded_videos
 
 

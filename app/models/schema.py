@@ -83,7 +83,10 @@ class VideoParams(BaseModel):
     video_materials: Optional[List[MaterialInfo]] = (
         None  # Materials used to generate the video
     )
-    
+    additional_video_materials: Optional[List[MaterialInfo]] = (
+        None  # Extra local files to mix in alongside online sources
+    )
+
     custom_audio_file: Optional[str] = None  # Custom audio file path, will ignore video_script and disable subtitle
     video_language: Optional[str] = ""  # auto detect
 

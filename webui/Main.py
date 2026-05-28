@@ -524,6 +524,7 @@ right_panel = panel[2]
 
 params = VideoParams(video_subject="")
 uploaded_files = []
+uploaded_extra_files = []
 uploaded_audio_file = None
 
 with left_panel:
@@ -624,6 +625,15 @@ with middle_panel:
                 "Upload Local Files",
                 type=local_file_types + [file_type.upper() for file_type in local_file_types],
                 accept_multiple_files=True,
+            )
+        else:
+            extra_file_types = ["mp4", "mov", "avi", "flv", "mkv", "jpg", "jpeg", "png"]
+            uploaded_extra_files = st.file_uploader(
+                tr("Also Add Your Own Media"),
+                type=extra_file_types + [t.upper() for t in extra_file_types],
+                accept_multiple_files=True,
+                key="extra_media_uploader",
+                help=tr("Also Add Your Own Media Help"),
             )
 
         selected_index = st.selectbox(
@@ -1123,6 +1133,18 @@ if start_button:
             m.duration = material.get("duration", 0)
             if m.url:
                 params.video_materials.append(m)
+
+    if uploaded_extra_files:
+        local_videos_dir = utils.storage_dir("local_videos", create=True)
+        params.additional_video_materials = []
+        for file in uploaded_extra_files:
+            file_path = os.path.join(local_videos_dir, f"{file.file_id}_{file.name}")
+            with open(file_path, "wb") as f:
+                f.write(file.getbuffer())
+            m = MaterialInfo()
+            m.provider = "local"
+            m.url = file_path
+            params.additional_video_materials.append(m)
 
     log_container = st.empty()
     log_records = []

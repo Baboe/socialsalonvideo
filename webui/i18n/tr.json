@@ -100,6 +100,8 @@
     "Hide Log": "Günlüğü Gizle",
     "Hide Basic Settings": "Temel Ayarları Gizle\n\nGizlendiği takdirde, temel ayarlar paneli sayfada görüntülenmeyecektir.\n\nTekrar görüntülemek için `config.toml` dosyasında `hide_config = false` olarak ayarlayın",
     "LLM Settings": "**LLM Ayarları**",
-    "Video Source Settings": "**Video Kaynağı Ayarları**"
+    "Video Source Settings": "**Video Kaynağı Ayarları**",
+    "Also Add Your Own Media": "Kendi resimlerinizi/videolarınızı ekleyin",
+    "Also Add Your Own Media Help": "İsteğe bağlı: seçilen çevrimiçi kaynakla karıştırmak için kendi resimlerinizi veya video kliplerini yükleyin."
   }
 }

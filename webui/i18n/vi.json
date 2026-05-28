@@ -117,6 +117,8 @@
     "Pixabay API Key added successfully": "Thêm API Key Pixabay thành công",
     "Select Pixabay API Key to delete": "Chọn API Key Pixabay để xóa",
     "Delete Selected Pixabay API Key": "Xóa API Key Pixabay đã chọn",
-    "Pixabay API Key deleted successfully": "Xóa API Key Pixabay thành công"
+    "Pixabay API Key deleted successfully": "Xóa API Key Pixabay thành công",
+    "Also Add Your Own Media": "Thêm hình ảnh/video của riêng bạn",
+    "Also Add Your Own Media Help": "Tùy chọn: tải lên hình ảnh hoặc video clip của riêng bạn để kết hợp với nguồn trực tuyến đã chọn."
   }
 }
