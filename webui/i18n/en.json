@@ -121,6 +121,7 @@
     "Delete Selected Pixabay API Key": "Delete Selected Pixabay API Key",
     "Pixabay API Key deleted successfully": "Pixabay API Key deleted successfully",
     "Also Add Your Own Media": "Also add your own images/videos",
-    "Also Add Your Own Media Help": "Optionally upload your own images or video clips to mix in alongside the selected online source."
+    "Also Add Your Own Media Help": "Optionally upload your own images or video clips to mix in alongside the selected online source.",
+    "Using Previously Uploaded Media": "Using previously uploaded files"
   }
 }

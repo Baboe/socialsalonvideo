@@ -69,6 +69,8 @@ if "ui_language" not in st.session_state:
 if "local_video_materials" not in st.session_state:
     # 记住用户最近一次已经落盘的本地素材，避免仅修改文案后二次生成时丢失素材列表。
     st.session_state["local_video_materials"] = []
+if "extra_video_materials" not in st.session_state:
+    st.session_state["extra_video_materials"] = []
 
 # 加载语言文件
 locales = utils.load_locales(i18n_dir)
@@ -635,6 +637,9 @@ with middle_panel:
                 key="extra_media_uploader",
                 help=tr("Also Add Your Own Media Help"),
             )
+            if not uploaded_extra_files and st.session_state["extra_video_materials"]:
+                saved_names = [os.path.basename(m["url"]) for m in st.session_state["extra_video_materials"]]
+                st.info(tr("Using Previously Uploaded Media") + ": " + ", ".join(saved_names))
 
         selected_index = st.selectbox(
             tr("Video Concat Mode"),
@@ -1137,6 +1142,7 @@ if start_button:
     if uploaded_extra_files:
         local_videos_dir = utils.storage_dir("local_videos", create=True)
         params.additional_video_materials = []
+        persisted_extra_materials = []
         for file in uploaded_extra_files:
             file_path = os.path.join(local_videos_dir, f"{file.file_id}_{file.name}")
             with open(file_path, "wb") as f:
@@ -1145,6 +1151,17 @@ if start_button:
             m.provider = "local"
             m.url = file_path
             params.additional_video_materials.append(m)
+            persisted_extra_materials.append({"provider": m.provider, "url": m.url, "duration": m.duration})
+        st.session_state["extra_video_materials"] = persisted_extra_materials
+    elif params.video_source != "local" and st.session_state["extra_video_materials"]:
+        params.additional_video_materials = []
+        for mat in st.session_state["extra_video_materials"]:
+            m = MaterialInfo()
+            m.provider = mat.get("provider", "local")
+            m.url = mat.get("url", "")
+            m.duration = mat.get("duration", 0)
+            if m.url:
+                params.additional_video_materials.append(m)
 
     log_container = st.empty()
     log_records = []

@@ -121,6 +121,7 @@
     "Delete Selected Pixabay API Key": "删除选定的 Pixabay API Key",
     "Pixabay API Key deleted successfully": "Pixabay API Key 删除成功",
     "Also Add Your Own Media": "同时上传自己的图片/视频",
-    "Also Add Your Own Media Help": "可选：上传自己的图片或视频片段，与所选在线来源一起混合使用。"
+    "Also Add Your Own Media Help": "可选：上传自己的图片或视频片段，与所选在线来源一起混合使用。",
+    "Using Previously Uploaded Media": "使用上次上传的文件"
   }
 }
